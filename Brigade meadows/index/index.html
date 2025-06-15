@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brigade Meadows Phase-1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assets/LOGO_1.png" alt="Brigade Logo" />
+        </div>
+        <button class="hamburger hamburger--emphatic" type="button" aria-label="Toggle Menu">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">More <i class="fa fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="sop.html">Security & SOPs</a>
+                        <a href="rules.html">Rules & Penalties</a>
+                        <a href="move.html">Shifting Guidelines</a>
+                        <a href="amenities.html">Amenities</a>
+                        <a href="downloads.html">Downloads</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Brigade Meadows Phase-1</h1>
+            <p>Official Community Portal – Rules, Facilities & SOPs</p>
+            <a href="downloads.html" class="btn">Download Latest SOP</a>
+        </div>
+    </section>
+
+    <section class="announcements">
+        <h2>Latest Announcements</h2>
+        <ul>
+            <li>Move-in not allowed on Sundays or after 6 PM</li>
+            <li>Smoking is banned in all common areas</li>
+            <li>Fire drill scheduled on July 1st, 11 AM</li>
+        </ul>
+    </section>
+
+    <section class="quick-links">
+        <h2>Quick Access</h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="sop.html" class="card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Security Guidelines</h3>
+                        <p>View security protocols and procedures</p>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="rules.html" class="card">
+                        <i class="fas fa-gavel"></i>
+                        <h3>Rule Violations</h3>
+                        <p>Community rules and penalties</p>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="move.html" class="card">
+                        <i class="fas fa-truck"></i>
+                        <h3>Move-In/Move-Out</h3>
+                        <p>Guidelines for shifting</p>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="amenities.html" class="card">
+                        <i class="fas fa-swimming-pool"></i>
+                        <h3>Amenities & Timings</h3>
+                        <p>Facilities and operating hours</p>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="policy.html" class="card">
+                        <i class="fas fa-paw"></i>
+                        <h3>Pet & Housekeeping</h3>
+                        <p>Pet and maintenance policies</p>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="downloads.html" class="card">
+                        <i class="fas fa-download"></i>
+                        <h3>Forms & Notices</h3>
+                        <p>Download important documents</p>
+                    </a>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <section class="ec-info">
+        <h2>Contact Executive Committee</h2>
+        <p>Email: ec.brigademeadows@gmail.com</p>
+        <p>Estate Office Hours: 9:00 AM – 6:00 PM, Monday to Saturday</p>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Brigade Meadows Phase-1 </p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Initialize Swiper
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                600: {
+                    slidesPerView: 2,
+                },
+                900: {
+                    slidesPerView: 3,
+                },
+                1200: {
+                    slidesPerView: 4,
+                }
+            },
+        });
+
+        // Hamburger Menu
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('is-active');
+            nav.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+                hamburger.classList.remove('is-active');
+                nav.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('is-active');
+                nav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html> 
