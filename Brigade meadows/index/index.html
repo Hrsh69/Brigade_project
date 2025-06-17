@@ -4,12 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brigade Meadows</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 <header class="hero-section">
     <nav class="navbar">
-        <div class="logo">BRIGADEMEADOWS</div>
+        <div class="logo">BRIGADE MEADOWS</div>
+        <button class="hamburger hamburger--emphatic" type="button" aria-label="Toggle Menu">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
@@ -20,9 +27,9 @@
     </nav>
 
     <div class="hero-content">
-        <h1>Brigade meadows<br />community</h1>
+        <h1>Welcome to<br /></h1><h1>Brigade Meadows</h1>
         <p>Stay updated with ease and clarity</p>
-        <a href="#" class="btn">View Services</a>
+        <a href="#" class="btn">View Society Guidelines</a>
     </div>
 </header>
 <section class="announcements-section">
@@ -33,35 +40,44 @@
         <li>🔥 Fire drill scheduled on July 1st, 11 AM</li>
     </ul>
 </section>
+<section class="events-section">
+    <h2>Events</h2>
+    <div class="events-container" id="eventsContainer">
+        <div class="event-item">Yoga Class - Every Saturday, 7 AM</div>
+        <div class="event-item">Community Clean-up - July 5th, 8 AM</div>
+        <div class="event-item">Kids Drawing Competition - July 10th, 4 PM</div>
+        <div class="event-item">Music Night - July 15th, 7 PM</div>
+    </div>
+</section>
 <section class="services-section">
-    <h2>Community Information</h2>
+    <h2>Quick Access</h2>
 
     <!-- Grid container -->
     <div class="card-grid">
-        <div class="card">
+            <a href="sop.html" class="card">
             <h3>Security Guidelines</h3>
             <p>Know the safety protocols, gate access policies, and emergency procedures.</p>
-        </div>
-        <div class="card">
+        </a>
+        <a href="rules.html" class="card">
             <h3>Rule Violations</h3>
             <p>Understand the common violations and the associated fines and penalties.</p>
-        </div>
-        <div class="card">
+        </a>
+        <a href="move.html" class="card">
             <h3>Move-In / Move-Out</h3>
             <p>Step-by-step checklist for residents moving in or out of the community.</p>
-        </div>
-        <div class="card">
+        </a>
+        <a href="amenities.html" class="card">
             <h3>Amenities & Timings</h3>
             <p>Gym, pool, clubhouse, and garden hours along with booking instructions.</p>
-        </div>
-        <div class="card">
+        </a>
+        <a href="pet.html" class="card">
             <h3>Pet Housekeeping</h3>
             <p>Pet ownership guidelines, cleaning responsibilities, and complaint procedures.</p>
-        </div>
-        <div class="card">
+        </a>
+        <a href="forms.html" class="card">
             <h3>Forms & Notices</h3>
             <p>Access downloadable forms, community circulars, and resident notices.</p>
-        </div>
+        </a>
     </div>
 
     <!-- SOP Button Outside the Grid -->
@@ -77,5 +93,87 @@
 <footer class="site-footer">
     © 2025 Brigade Meadows Phase-1
 </footer>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="script.js"></script>
+<script>
+    // Initialize Swiper (if you plan to re-introduce it or keep the dependency)
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            600: {
+                slidesPerView: 2,
+            },
+            900: {
+                slidesPerView: 3,
+            },
+            1200: {
+                slidesPerView: 4,
+            }
+        },
+    });
+
+    // Hamburger Menu
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('is-active');
+        navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+            hamburger.classList.remove('is-active');
+            navLinks.classList.remove('active');
+        }
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('is-active');
+            navLinks.classList.remove('active');
+        });
+    });
+
+    // Events auto-scroll
+    const eventsContainer = document.getElementById('eventsContainer');
+    if (eventsContainer) {
+        let index = 0;
+        const items = eventsContainer.querySelectorAll('.event-item');
+        
+        function showEvent(indexToShow) {
+            items.forEach((item, i) => {
+                if (i === indexToShow) {
+                    item.style.opacity = '1';
+                    item.style.visibility = 'visible';
+                    item.style.position = 'relative'; /* Ensure it occupies space when visible */
+                } else {
+                    item.style.opacity = '0';
+                    item.style.visibility = 'hidden';
+                    item.style.position = 'absolute'; /* Hide and remove from flow */
+                }
+            });
+        }
+
+        // Initial display
+        showEvent(index);
+
+        setInterval(() => {
+            index = (index + 1) % items.length;
+            showEvent(index);
+        }, 2500);
+    }
+</script>
 </body>
 </html>
