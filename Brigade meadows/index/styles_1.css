@@ -45,6 +45,11 @@ body, html {
     transition: color 0.3s ease;
 }
 
+.nav-links a.active {
+    color: #ffd700;
+    font-weight: bold;
+  }
+
 .nav-links a:hover {
     color: #2f80ed;
 }
@@ -241,7 +246,7 @@ body, html {
     color: #555;
     margin-top: 60px; /* Adds space above the footer */
 }
-.sop-section {
+.section {
     padding: 80px 60px 40px;
     background-color: #ffffff;
     color: #222;
@@ -250,16 +255,16 @@ body, html {
     line-height: 1.6;
 }
 
-.sop-section h1, 
-.sop-section h2, 
-.sop-section h3 {
+.section h1, 
+.section h2, 
+.section h3 {
     margin-bottom: 20px;
     color: #1a237e;
     padding-top: 20px; /* Add extra top padding to prevent overlap */
 
 }
 
-.sop-section h2 {
+.section h2 {
     font-size: 2rem;
     margin-top: 40px;
     border-bottom: 2px solid #1a237e;
@@ -268,25 +273,25 @@ body, html {
 
 }
 
-.sop-section h3 {
+.section h3 {
     font-size: 1.2rem;
     font-weight: 600;
 }
 
-.sop-section p {
+.section p {
     margin-bottom: 10px;
     font-size: 1rem;
 }
 
-.sop-section ul {
+.section ul {
     padding-left: 20px;
     margin-bottom: 20px;
 }
 
-.sop-section li {
+.section li {
     margin-bottom: 8px;
 }
-.sop-section {
+.section {
     padding: 60px 40px;
     background-color: #f9f9f9;
     color: #222;
@@ -303,13 +308,13 @@ body {
     background-color: #f0f2f5;
 }
 
-.sop-wrapper {
+.wrapper {
     display: flex;
     justify-content: center;
     padding: 40px 20px;
 }
 
-.sop-section {
+.section {
     max-width: 1200px;
     width: 100%;
     background-color: #ffffff;

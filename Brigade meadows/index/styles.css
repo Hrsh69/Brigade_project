@@ -97,6 +97,10 @@ a {
     position: relative;
     transition: color 0.3s ease;
 }
+.nav-links a.active {
+    color: #ffd700;
+    font-weight: bold;
+  }
 
 .nav-links a::after {
     content: '';
@@ -289,9 +293,9 @@ section h2::after {
 /* Quick Access Card Grid */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    padding: 20px 0;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
 }
 
 /* Contact Section */
@@ -432,7 +436,9 @@ section h2::after {
     }
 
     .events-container {
-        height: 180px; /* Adjust height for single column on mobile */
+        height: 180px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjust height for single column on mobile */
     }
 
     .event-item {
@@ -472,6 +478,8 @@ section h2::after {
     .event-item {
         padding: 15px;
         font-size: 1em;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
 
     .site-footer {
@@ -480,11 +488,37 @@ section h2::after {
     }
 }
 
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem;
+.pet_card {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 350px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.pet_card:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.pet_card-extra {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.pet_card.open .card-extra {
+    max-height: 300px;
+    opacity: 1;
 }
 
 .card {
@@ -508,7 +542,7 @@ section h2::after {
     opacity: 0;
     transition: max-height 0.4s ease, opacity 0.4s ease;
     margin-top: 1rem;
-    text-align: left;
+    text-align: center;
     font-size: 0.9rem;
 }
 
@@ -522,7 +556,30 @@ section h2::after {
     color: #007BFF;
     margin-bottom: 0.5rem;
 }
+
+.sop-button-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.sop-button {
+    display: inline-block;
+    padding: 10px 25px;
+    font-size: 16px;
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.sop-button:hover {
+    background-color: #d83b00;
+}
+
 html {
     scroll-behavior: smooth;
 }
-

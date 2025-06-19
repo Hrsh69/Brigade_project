@@ -329,3 +329,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 }); 
+const path = window.location.pathname.split('/').pop();
+document.querySelectorAll('.nav-links a').forEach(link => {
+  if (link.getAttribute('href') === path) {
+    link.classList.add('active');
+  }
+});
